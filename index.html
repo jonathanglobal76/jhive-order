@@ -4,27 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>J HIVE Order Portal</title>
-<style>
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:#1f1d1a;color:#d9b866;font:16px system-ui,sans-serif;text-align:center}
-.s{width:40px;height:40px;margin:0 auto 14px;border:3px solid #6b5a33;border-top-color:#d9b866;border-radius:50%;animation:r 1s linear infinite}
-@keyframes r{to{transform:rotate(360deg)}}
-small{color:#a39b8a}#e{display:none;color:#f2b8b5;margin-top:12px}
-</style>
-</head>
-<body>
-<div><div class="s"></div><b>J HIVE</b><br><small>Loading…</small>
-<p id="e">연결이 원활하지 않습니다. 새로고침해 주세요.<br>Connection problem. Please refresh.</p></div>
 <script>
-(function () {
-  var API = "https://script.google.com/macros/s/AKfycbwv0oOpTGyOZMzhpjyFPdQq2PzggywXNSaSkDpDnYMhoec6sT8k3IVBtXGRTxJ2MKiuTw/exec";
-  fetch(API + "?format=app", { credentials: "omit" })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(function (h) {
-      h = h.replace("<head>", "<head><script>window.JH_API=" + JSON.stringify(API) + ";<\/script>");
-      document.open(); document.write(h); document.close();
-    })
-    .catch(function () { document.getElementById("e").style.display = "block"; });
-})();
+// Old address → new address, keeping ?page=admin and #hash
+location.replace("https://jhiveglobal.github.io/jhive-order/" + location.search + location.hash);
 </script>
+<meta http-equiv="refresh" content="0;url=https://jhiveglobal.github.io/jhive-order/">
+</head>
+<body style="background:#1f1d1a;color:#d9b866;font:16px system-ui,sans-serif;text-align:center;padding-top:40vh">
+<a style="color:#d9b866" href="https://jhiveglobal.github.io/jhive-order/">J HIVE Order Portal →</a>
 </body>
 </html>
